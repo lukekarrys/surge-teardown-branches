@@ -13,6 +13,9 @@ test('Finds surge projects', (t) => {
     t.equal(projects.length, projects.filter(Boolean).length)
     t.ok(projects.every((p) => kindaUrlLike.test(p)))
     t.end()
+  }).catch((err) => {
+    t.notOk(err)
+    t.end()
   })
 })
 

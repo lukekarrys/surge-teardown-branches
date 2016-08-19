@@ -10,6 +10,9 @@ test('Output is as expected for a basic command', (t) => {
     t.ok(output.length)
     t.ok(output.every(Boolean))
     t.end()
+  }).catch((err) => {
+    t.notOk(err)
+    t.end()
   })
 })
 
@@ -23,7 +26,10 @@ test('Can catch for an error', (t) => {
 
 test('Can find surge', (t) => {
   cp('which surge').then((output) => {
-    console.log(output)
+    t.ok(output[0].endsWith('/surge'))
+    t.end()
+  }).catch((err) => {
+    t.notOk(err)
     t.end()
   })
 })

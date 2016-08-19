@@ -8,5 +8,8 @@ test('Finds the only master branch', (t) => {
   getBranches().then((branches) => {
     t.deepEqual(branches, ['master'])
     t.end()
+  }).catch((err) => {
+    t.notOk(err)
+    t.end()
   })
 })
