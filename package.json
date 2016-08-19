@@ -1,0 +1,49 @@
+{
+  "name": "surge-teardown-branches",
+  "description": "Teardown Surge projects that no longer have a corresponding remote branch on a git repository.",
+  "version": "1.0.0",
+  "author": "Luke Karrys <luke@lukekarrys.com>",
+  "bin": {
+    "surge-teardown-branches": "cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/lukekarrys/surge-teardown-branches/issues"
+  },
+  "dependencies": {
+    "escape-string-regexp": "^1.0.5",
+    "minimist": "^1.2.0",
+    "strip-ansi": "^3.0.1"
+  },
+  "devDependencies": {
+    "git-validate": "^2.1.4",
+    "standard": "^8.0.0-beta.5",
+    "surge": "^0.18.0",
+    "tape": "^4.6.0"
+  },
+  "engines": {
+    "node": "^4.0.0 || ^5.0.0 || ^6.0.0"
+  },
+  "homepage": "https://github.com/lukekarrys/surge-teardown-branches#readme",
+  "keywords": [
+    "deploy",
+    "git",
+    "static",
+    "surge"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lukekarrys/surge-teardown-branches.git"
+  },
+  "scripts": {
+    "lint": "standard",
+    "test": "tape test/*.js",
+    "validate": "npm ls"
+  }
+}
