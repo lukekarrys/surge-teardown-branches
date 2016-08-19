@@ -19,7 +19,8 @@ test('Output is as expected for a basic command', (t) => {
 test('Can catch for an error', (t) => {
   cp('sdfsdfsdfsdfsdfsdfsf').catch((err) => {
     t.ok(err instanceof Error)
-    t.ok(err.message.indexOf('Command failed: sdfsdfsdfsdfsdfsdfsf') > -1)
+    t.ok(err.message.indexOf('Command failed') > -1)
+    t.ok(err.message.indexOf('sdfsdfsdfsdfsdfsdfsf') > -1)
     t.end()
   })
 })
