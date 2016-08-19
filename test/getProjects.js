@@ -10,24 +10,8 @@ test('Finds surge projects', (t) => {
   getProjects().then((projects) => {
     t.ok(Array.isArray(projects))
     t.ok(projects.length)
+    t.equal(projects.length, projects.filter(Boolean).length)
     t.ok(projects.every((p) => kindaUrlLike.test(p)))
-    t.end()
-  })
-})
-
-test('Finds only one project', (t) => {
-  getProjects(/tweetyourbracket.com$/).then((projects) => {
-    t.ok(Array.isArray(projects))
-    t.ok(projects.length)
-    t.equal(projects.length, 1)
-    t.end()
-  })
-})
-
-test('Finds no projects for a bad regex', (t) => {
-  getProjects(/asadsasdasdasdasdasdasdasdas/).then((projects) => {
-    t.ok(Array.isArray(projects))
-    t.notOk(projects.length)
     t.end()
   })
 })

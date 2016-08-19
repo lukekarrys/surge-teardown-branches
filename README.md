@@ -22,9 +22,19 @@ The problem is that Surge makes it so easy to create a project (you can use any 
 
 This tool will go through a filtered list of your Surge projects and then run `surge teardown PROJECT` for any project that doesn't have a corresponding remote branch.
 
+
 ### Assumptions
 
-This tool makes a few assumptions so that it works
+This tool makes a few assumptions so that it works in an expected way and will never teardown any projects by mistake!
+
+So if you want this to be able to teardown your Surge projects you must name them so:
+
+- They all end with the same unique project name / domain
+- They all start with a branch name
+- Between the branch and domain there can be one character (like `-`, `_`, or `.`)
+
+So if your feature branches are named like `feature-name-issue-99` and you call your project `awsomesauce`, then when they are deployed to surge they should look like `feature-name-issue-99_awesomesauce.surge.sh` or `feature-name-issue-99.awesomesauce.com` if you are using a custom domain (and subdomains).
+
 
 ### Example Time
 
@@ -47,18 +57,33 @@ otherproject.surge.sh
 
 **Result**
 ```sh
-surge-teardown-branches -end -myproject.surge.sh
+surge-teardown-branches myproject.surge.sh
 # The following projects will be torn down
 # greenkeeper-async-5.0.0-myproject.surge.sh
 # greenkeeper-lodash-4.0.0-myproject.surge.sh
+# Note that myproject.surge.sh WILL NOT be torn down
+# because thats not what you want and would be silly
 ```
 
-The command is using the CLI param `-end` so it will first filter your surge projects down to those ending in `-myproject.surge.sh`. Then it will teardown the projects for `greenkeeper-async-5.0.0` and `greenkeeper-lodash-4.0.0` because those don't have any remote branches. The `greenkeeper-yargs-5.0.0` won't be torn down because a branch still exists with a matching name (presumably because the PR is still being worked on or waiting for review).
+**What's going on?**
+1. Looks for all projects that look like `SOMEBRANCHNAME-myproject.surge.sh`
+2. Looks for all remote branches
+3. Teardown all projects where `SOMEBRANCHNAME` isn't a remote branch
+4. `greenkeeper-yargs-5.0.0-myproject.surge.sh` won't be torn down because a branch still exists with a matching name (presumably because the PR is still being worked on or waiting for review).
 
+
+## API
+
+**CLI**
+```sh
+surge-teardown-branches myproject.surge.sh
+```
+
+**JS**
 ```js
-const teardown = require('surge-teardown-branches')
-
-teardown(/\-myproject\.surge\.sh$/).then(console.log.bind(console))
-// Success - 
-// Success - 
+require('surge-teardown-branches')('myproject.surge.sh')
 ```
+
+## LICENSE
+
+MIT
