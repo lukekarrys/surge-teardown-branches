@@ -87,6 +87,8 @@ surge-teardown-branches myproject.surge.sh
 **JS**
 ```js
 require('surge-teardown-branches')('myproject.surge.sh')
+  .then(results => console.log(results))
+  .catch(error => console.error(erro))
 ```
 
 ## LICENSE
