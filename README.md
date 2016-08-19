@@ -40,6 +40,7 @@ So if your feature branches are named like `feature-name-issue-99` and you call 
 ### Example Time
 
 **Remote branches**
+
 ```
 greenkeeper-yargs-5.0.0
 master
@@ -47,6 +48,7 @@ development
 ```
 
 **Surge projects**
+
 ```
 greenkeeper-yargs-5.0.0-myproject.surge.sh
 greenkeeper-async-2.0.0-myproject.surge.sh
@@ -57,6 +59,7 @@ otherproject.surge.sh
 ```
 
 **Result**
+
 ```sh
 surge-teardown-branches myproject.surge.sh
 # The following projects will be torn down
@@ -67,6 +70,7 @@ surge-teardown-branches myproject.surge.sh
 ```
 
 **What's going on?**
+
 1. Looks for all projects that look like `SOMEBRANCHNAME-myproject.surge.sh`
 2. Looks for all remote branches
 3. Teardown all projects where `SOMEBRANCHNAME` isn't a remote branch
