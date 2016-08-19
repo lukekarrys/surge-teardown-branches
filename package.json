@@ -1,7 +1,7 @@
 {
   "name": "surge-teardown-branches",
   "description": "Teardown Surge projects that no longer have a corresponding remote branch on a git repository.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Luke Karrys <luke@lukekarrys.com>",
   "bin": {
     "surge-teardown-branches": "cli.js"
