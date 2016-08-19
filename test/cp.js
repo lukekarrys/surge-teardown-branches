@@ -16,6 +16,7 @@ test('Output is as expected for a basic command', (t) => {
 test('Can catch for an error', (t) => {
   cp('sdfsdfsdfsdfsdfsdfsf').catch((err) => {
     t.ok(err instanceof Error)
+    console.log(err)
     t.ok(err.message.indexOf('sdfsdfsdfsdfsdfsdfsf: command not found') > -1)
     t.end()
   })
@@ -23,6 +24,7 @@ test('Can catch for an error', (t) => {
 
 test('Can find surge', (t) => {
   cp('which surge').then((output) => {
+    console.log(output)
     t.end()
   })
 })
