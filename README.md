@@ -22,6 +22,7 @@ The problem is that Surge makes it so easy to create a project (you can use any 
 
 This tool will go through a filtered list of your Surge projects and then run `surge teardown PROJECT` for any project that doesn't have a corresponding remote branch.
 
+**Note: you must either run this command after you've already logged in with Surge or use the `SURGE_LOGIN` and `SURGE_TOKEN` environment variables [as described here](https://surge.sh/help/integrating-with-travis-ci).**
 
 ### Assumptions
 
