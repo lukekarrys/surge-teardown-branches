@@ -4,7 +4,7 @@ const test = require('tape')
 
 const getProjects = require('../lib/getProjects')
 
-const kindaUrlLike = /([^\.]\.)?[^\.]\.[^\.]/
+const kindaUrlLike = /([^.]\.)?[^.]\.[^.]/
 
 test('Finds surge projects', (t) => {
   getProjects().then((projects) => {
