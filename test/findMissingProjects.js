@@ -109,4 +109,3 @@ test('Filter out similar projects', (t) => {
   ])
   t.end()
 })
-
