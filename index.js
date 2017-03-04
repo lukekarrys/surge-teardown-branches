@@ -7,7 +7,7 @@ const teardownProjects = require('./lib/teardownProjects')
 
 module.exports = (domain) => {
   if (!domain || typeof domain !== 'string') {
-    return Promise.reject('Must pass a string to match ending of projects')
+    return Promise.reject(new Error('Must pass a string to match ending of projects'))
   }
 
   return Promise.all([
