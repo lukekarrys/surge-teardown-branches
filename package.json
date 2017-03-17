@@ -13,7 +13,7 @@
     "escape-string-regexp": "^1.0.5",
     "minimist": "^1.2.0",
     "strip-ansi": "^3.0.1",
-    "surge": "^0.18.0"
+    "surge": "^0.19.0"
   },
   "devDependencies": {
     "git-validate": "^2.2.0",
